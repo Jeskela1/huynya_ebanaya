@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>All users</title>
+</head>
+<body>
+<h2>Users</h2>
+<table border="4">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Age</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr th:each="user : ${users}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.surname}"></td>
+        <td th:text="${user.age}"></td>
+        <td>
+            <form th:action="@{/users/edit}">
+                <button type="submit" th:name="id" th:value="${user.id}" >Update</button>
+
+            </form>
+        </td>
+        <td>
+            <form method="post" th:action="@{/users/delete}">
+                <button type="submit" th:name="id" th:value="${user.id}">Delete</button>
+            </form>
+        </td>
+    </tr>
+
+    </tbody>
+</table>
+<br>
+<form th:action="@{/users/new}">
+    <button type="submit">Add user</button>
+</form>
+</body>
+</html>
