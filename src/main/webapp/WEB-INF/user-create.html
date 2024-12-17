@@ -11,8 +11,8 @@
     <input type="text" id="name" th:field="*{name}" required>
     <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</div>
     <br> <br>
-    <label for="email">Surname</label>
-    <input type="text" id="email" th:field="*{surname}" required>
+    <label for="surname">Surname</label>
+    <input type="text" id="surname" th:field="*{surname}" required>
     <div th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}">Name error</div>
     <br> <br>
     <label for="age">Age</label>
