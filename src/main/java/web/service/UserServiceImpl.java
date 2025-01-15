@@ -12,7 +12,7 @@ import java.util.Optional;
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    private  UserDao userDao;
+    private UserDao userDao;
 
     @Override
     public void save(User user) {
@@ -21,17 +21,17 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getAllUser() {
-        return userDao.getAllUser();
+        return userDao.findAll();
     }
 
     @Override
     public Optional<User> getUserById(Long id) {
-        return userDao.getUserById(id);
+        return userDao.findById(id);
     }
 
     @Override
     public void updateUser(User user) {
-        userDao.updateUser(user);
+        userDao.saveAndFlush(user);
     }
 
     @Override
